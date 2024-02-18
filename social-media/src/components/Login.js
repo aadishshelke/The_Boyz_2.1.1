@@ -15,13 +15,15 @@ const Login = (props) => {
       <Section>
         <Hero>
           <h1>Welcome to your professional community</h1>
-          <img src="/images/login-hero_.svg" alt="" />
+          <img src="/images/login-hero.svg" alt="" />
         </Hero>
         <Form>
-          <Started>
+            <a href = "/signup" >
+          <Started >
             <img src="/images/BG_black.png" alt="" />
             Get Started
           </Started>
+          </a>
           <Account>
             Already have an account?<span><a href = "/">Log In</a></span>         
           </Account>
@@ -36,6 +38,7 @@ const Login = (props) => {
 
 const Container = styled.div`
   padding: 0px;
+  background-color : #ffeae5;
 `;
 
 const Nav = styled.nav`
@@ -91,7 +94,7 @@ const SignIn = styled.a`
   line-height: 40px;
   padding: 10px 24px;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #ffd7d7;
   &:hover {
     background-color: #ffcccc;
     color: #000000  ;
@@ -139,8 +142,9 @@ const Hero = styled.div`
   }
 
   img {
-    width: 120vh;
-    height: 95vh;
+    /* z-index: -1; */
+    width: 770px;
+    height: 617px;
     position: absolute;
     top: 0vh;
     left: 94vh;
@@ -156,6 +160,10 @@ const Hero = styled.div`
 const Form = styled.div`
   margin-top: 100px;
   width: 408px;
+  & > a {
+    text-decoration: none;
+  }
+
   @media (max-width: 768px) {
     margin-top: 20px;
   }
@@ -169,6 +177,7 @@ const Started = styled.button`
   height: 56px;
   width: 100%;
   border-radius: 26px;
+  
   box-shadow: inset 0 0 0 1px rgb(0 0 0 / 60%),
     inset 0 0 0 2px rgb(0 0 0 / 0%) inset 0 0 0 1px rgb(0 0 0 / 0);
 
@@ -178,13 +187,12 @@ const Started = styled.button`
   font-size: 20px;
   color: rgba(0, 0, 0, 0.6);
   &:hover {
-    background-color: #ffacac;
+    background-color: #ffafaf;
     color: rgba(0, 0, 0, 0.75);
   }
   & > img {
     padding : 1vh;
   } 
- 
 `;
 
 const Text = styled.div`
@@ -199,10 +207,12 @@ const Account = styled.div`
   text-align : left;
   width: 100vh;
   font-size : 2.3vh ;
-  & > span > a {
-    text-decoration : none;
+
+  & > span > a{
+    // text-decoration : none;
     font-weight : 600;
   }
+
 `;
 
 
