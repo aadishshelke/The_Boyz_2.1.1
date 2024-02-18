@@ -6,7 +6,7 @@ const Header = (props) => {
       <Content>
         <Logo>
           <a href="/home">
-            <img src="/images/BG_black.png" height = "1px" alt="" />
+            <img src="/images/logo-transparent.png" height = "1px" alt="" />
           </a>
         </Logo>
         <Search>
@@ -106,7 +106,8 @@ const Logo = styled.span`
   font-size: 0px;
   margin-right : 1vh;
   & > a > img {
-    height : 5.5vh;
+    height : 4vh;
+    padding-left : 2vh;
   }
 `;
 

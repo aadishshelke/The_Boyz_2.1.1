@@ -6,7 +6,7 @@ const Signup = (props) => {
 
         <Logo>
           <a href="/">
-            <img src="/images/logo-white2.png" height = "38vh" alt="" />
+            <img src="/images/logo-transparent.png" height = "38vh" alt="" />
           </a>
         </Logo>
 
@@ -54,8 +54,8 @@ const Container = styled.div `
 
     `;
 const Logo = styled.div `
-    // border: 3px solid blue;
-    padding-top : 1vh;
+// border: 3px solid blue;
+padding-top : 1vh;
     
 `;
 const Heading = styled.div `
@@ -74,7 +74,7 @@ const Heading = styled.div `
     justify-content: center;
     background-color: #ffd7d7;
     align-items: center;
-    height: 56px;
+    height: 18vh;
     width: 20%;
     border-radius: 8px;
     box-shadow: inset 0 0 0 1px rgb(0 0 0 / 60%),
@@ -100,7 +100,7 @@ const Heading = styled.div `
     justify-content: center;
     background-color: #ffd7d7;
     align-items: center;
-    height: 56px;
+    height: 18vh;
     width: 20%;
     border-radius: 8px;
     box-shadow: inset 0 0 0 1px rgb(0 0 0 / 60%),
@@ -108,6 +108,8 @@ const Heading = styled.div `
     padding : 7vh;
     margin-bottom : 10vh;
     margin-left : 10vh;
+    
+
 
   vertical-align: middle;
   z-index: 0;
@@ -136,6 +138,8 @@ const Account = styled.div `
 //   text-decoration : none;
 font-size : 3vh;
   z-index : 100;
+  text-align : center;
+  padding-right : 2vh;
 `;
 
 export default Signup;

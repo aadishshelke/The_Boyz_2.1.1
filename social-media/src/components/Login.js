@@ -5,7 +5,7 @@ const Login = (props) => {
     <Container>
       <Nav>
         <a href="/">
-          <img src="/images/logo-white2.png"  alt="" />
+          <img src="/images/logo-transparent.png"  alt="" />
         </a>
         <div>
           <Join>Join now</Join>
