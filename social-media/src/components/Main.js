@@ -19,11 +19,11 @@ const Main = (props) => {
                         <span>Video</span>
                     </button>
                     <button>
-                        <img src="/images/event-icon.svg" alt="" />
+                        <img src="/images/landscape.svg" alt="" />
                         <span>Event</span>
                     </button>
                     <button>
-                        <img src="/images/article-icon.svg" alt="" />
+                        <img src="/images/text-icon.svg" alt="" />
                         <span>Write article</span>
                     </button>
                 </div>
@@ -32,22 +32,22 @@ const Main = (props) => {
                 <Article>
                     <SharedActor>
                         <a>
-                            <img src="/images/user.svg" alt="" />
+                            <img src="/images/yuvraj.jpg" alt="" />
                             <div>
 
-                                <span>Title</span>
-                                <span>Info</span>
-                                <span>Date</span>
+                                <span>Shree</span>
+                                <span>Entrepreneur</span>
+                                <span>19/02/24</span>
                             </div>
                         </a>
                         <button>
                             <img src="/images/ellipsis.svg" alt="" />
                         </button>
                     </SharedActor>
-                    <Description>Description</Description>
+                    <Description>Step into the seamless world of the Apple ecosystem, where innovation meets integration. From the sleek design of the iPhone to the powerful performance of the MacBook, Apple offers a suite of products that work together effortlessly, enhancing your productivity and enriching your digital experience. With iCloud keeping your data synchronized across all devices and services like Apple Music and Apple TV+ providing endless entertainment options, the Apple ecosystem is more interconnected than ever before. Join millions of users worldwide who rely on Apple's ecosystem for a seamless, intuitive, and unparalleled tech experience.<strong>#Apple #Ecosystem #Innovation #Productivity #DigitalExperience</strong></Description>
                     <SharedImg>
                         <a>
-                            <img src="/images/scenery-image.jpg" alt="" />
+                            <img src="/images/apple.jpg" alt="" />
                         </a>
                     </SharedImg>
 
@@ -67,17 +67,167 @@ const Main = (props) => {
 
                     <SocialActions>
                         <button>
-                            <img src="/images/like-icon.svg" alt="" /> <span>Like</span>
+                            <span>Like</span>
                         </button>
                         <button>
-                            <img src="/images/comments-icon.svg" alt="" /> <span>Comments</span>
+                            <span>Comments</span>
                         </button>
                         <button>
-                            <img src="/images/share-icon.svg" alt="" />
                             <span>Share</span>
                         </button>
                         <button>
-                            <img src="/images/send-icon.svg" alt="" />
+                            <span>Send</span>
+                        </button>
+                    </SocialActions>
+
+                </Article>
+                <Article>
+                    <SharedActor>
+                        <a>
+                            <img src="/images/aadish.jpg" alt="" />
+                            <div>
+
+                                <span>Aadish Shelke</span>
+                                <span>Investor</span>
+                                <span>18/02/24</span>
+                                
+                            </div>
+                        </a>
+                        <button>
+                            <img src="/images/ellipsis.svg" alt="" />
+                        </button>
+                    </SharedActor>
+                    <Description>Capturing life's moments in stunning detail just got even better with Sony cameras. Whether you're a seasoned pro or just starting out, Sony's innovative technology and exceptional image quality ensure that you'll never miss a shot. Join the Sony camera community today and elevate your photography game to new heights! <strong>#SonyCameras #Photography #Innovation #CaptureTheMoment</strong></Description>
+                    <SharedImg>
+                        <a>
+                            <img src="/images/sony.jpg" alt="" />
+                        </a>
+                    </SharedImg>
+
+                    <SocialCounts>
+                        <li>
+                            <button>
+                                <img
+                                    src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb" alt="" />
+                                <img src="https://static-exp1.licdn.com/sc/h/5thsbmikm6a8uov24ygwd914f" alt="" />
+                                <span>1.2k</span>
+                            </button>
+                        </li>
+                        <li>
+                            <a>26 comments</a>
+                        </li>
+                    </SocialCounts>
+
+                    <SocialActions>
+                        <button>
+                            <span>Like</span>
+                        </button>
+                        <button>
+                            <span>Comments</span>
+                        </button>
+                        <button>
+                            <span>Share</span>
+                        </button>
+                        <button>
+                            <span>Send</span>
+                        </button>
+                    </SocialActions>
+
+                </Article>
+                <Article>
+                    <SharedActor>
+                        <a>
+                            <img src="/images/atharva.jpg" alt="" />
+                            <div>
+
+                                <span>Atharva Godbole</span>
+                                <span>Entrepreneur</span>
+                                <span>17/02/24</span>
+                            </div>
+                        </a>
+                        <button>
+                            <img src="/images/ellipsis.svg" alt="" />
+                        </button>
+                    </SharedActor>
+                    <Description>Tesla's stock continues its meteoric rise, defying expectations and setting new records. Despite recent market volatility, Tesla's shares have shown remarkable resilience, reflecting investor confidence in the company's innovative technology and visionary leadership. With Tesla's ambitious plans for expansion and its position at the forefront of the electric vehicle revolution, many are closely watching its stock performance. As the market evolves, staying informed about Tesla's stock prices is crucial for investors and enthusiasts alike. What are your thoughts on Tesla's current trajectory?<strong>#Tesla#StockMarket#Investing #Innovation</strong> </Description>
+                    <SharedImg>
+                        <a>
+                            <img src="/images/tesla.jpg" alt="" />
+                        </a>    
+                    </SharedImg>
+
+                    <SocialCounts>
+                        <li>
+                            <button>
+                                <img
+                                    src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb" alt="" />
+                                <img src="https://static-exp1.licdn.com/sc/h/5thsbmikm6a8uov24ygwd914f" alt="" />
+                                <span>780</span>
+                            </button>
+                        </li>
+                        <li>
+                            <a>19 comments</a>
+                        </li>
+                    </SocialCounts>
+
+                    <SocialActions>
+                        <button>
+                            <span>Like</span>
+                        </button>
+                        <button>
+                            <span>Comments</span>
+                        </button>
+                        <button>
+                            <span>Share</span>
+                        </button>
+                        <button>
+                            <span>Send</span>
+                        </button>
+                    </SocialActions>
+
+                </Article>
+                <Article>
+                    <SharedActor>
+                        <a>
+                            <img src="/images/user.svg" alt="" />
+                            <div>
+
+                                <span>Yuvraj Salve</span>
+                                <span>Freelancer</span>
+                                <span>17/02/24</span>
+                            </div>
+                        </a>
+                        <button>
+                            <img src="/images/ellipsis.svg" alt="" />
+                        </button>
+                    </SharedActor>
+                    <Description>As an avid watcher of Shark Tank India, I'm continually inspired by the entrepreneurial spirit and innovation showcased on the show. From groundbreaking startups to insightful investor feedback, Shark Tank India offers valuable insights into the world of business and entrepreneurship. It's fascinating to witness the journey of aspiring entrepreneurs as they pitch their ideas and navigate the challenges of securing funding and scaling their ventures. Looking forward to seeing more innovative ideas and success stories unfold on Shark Tank India! <strong>#SharkTankIndia #Entrepreneurship #Innovation #StartupJourney </strong></Description>
+
+                    <SocialCounts>
+                        <li>
+                            <button>
+                                <img
+                                    src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb" alt="" />
+                                <img src="https://static-exp1.licdn.com/sc/h/5thsbmikm6a8uov24ygwd914f" alt="" />
+                                <span>42</span>
+                            </button>
+                        </li>
+                        <li>
+                            <a>1 comment</a>
+                        </li>
+                    </SocialCounts>
+
+                    <SocialActions>
+                        <button>
+                            <span>Like</span>
+                        </button>
+                        <button>
+                            <span>Comments</span>
+                        </button>
+                        <button>
+                            <span>Share</span>
+                        </button>
+                        <button>
                             <span>Send</span>
                         </button>
                     </SocialActions>
@@ -154,6 +304,10 @@ div {
             }
             }
             }
+
+            & > div >button > img {
+                height : 4vh;
+            }
 `;
 
 const Article = styled(CommonCard)`
@@ -175,10 +329,10 @@ a {
     overflow: hidden;
     display: flex;
     text-decoration: none;
-
     img {
         width: 48px;
         height: 48px;
+        border-radius : 30px;
     }
     & > div {
         display: flex;
@@ -249,7 +403,11 @@ font-size: 12px;
 button {
 display: flex;
 }
-}`;
+}
+& > button > img {
+    height : 3vh;
+}
+`;
 
 
 const SocialActions = styled.div`

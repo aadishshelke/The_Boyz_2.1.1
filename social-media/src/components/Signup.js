@@ -17,16 +17,19 @@ const Signup = (props) => {
 
         <Elements>
             <Founder>
-                I'm a startup founder, looking to get some investors.
+            <a href = "/Founder_signup">
+                I want to grow my startup with everyone
+            </a>
             </Founder>
-
             <Investor>
-                I'm an investor, looking to connect with startups.
+            <a href = "/Investor_signup">
+                I'm an user, looking to connect with startups.
 
+            </a>
             </Investor>
         </Elements>
     <Account>
-            Already have an account?<span><a href = "/">Log In</a></span>         
+            Already have an account?<span><a href = "/signin">Log In</a></span>         
           </Account>
     </Main>
 
@@ -94,6 +97,9 @@ const Heading = styled.div `
     & > img {
         padding : 1vh;
     } 
+    & > a {
+        text-decoration : none ;
+    }
     `;
     const Investor = styled.button`
     display: flex;
@@ -123,6 +129,9 @@ const Heading = styled.div `
   & > img {
     padding : 1vh;
   } 
+  & > a {
+    text-decoration : none ;
+}
 `;
 const Elements = styled.div `
     // border: 3px solid blue;

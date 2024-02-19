@@ -26,13 +26,6 @@ const Header = (props) => {
               </a>
             </NavList>
 
-            {/* <NavList>
-              <a>
-                <img src="/images/nav-network.svg" alt="" />
-                <span>My Network</span>
-              </a>
-            </NavList> */}
-
             <NavList>
               <a>
                 <img src="/images/mentor-white.svg  " alt="" />

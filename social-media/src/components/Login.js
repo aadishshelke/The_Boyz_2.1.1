@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
+  let navigate = useNavigate();
   return (
     <Container>
       <Nav>
@@ -8,13 +11,15 @@ const Login = (props) => {
           <img src="/images/logo-transparent.png"  alt="" />
         </a>
         <div>
+        <a href = "/signup" >
           <Join>Join now</Join>
-          <SignIn>Sign in</SignIn>
+        </a>
+          <SignIn onClick={() => navigate('/signin')} >Sign in</SignIn>
         </div>
       </Nav>
       <Section>
         <Hero>
-          <h1>Welcome to your professional community</h1>
+          <h1>Welcome to the #1 entrepreneurial community</h1>
           <img src="/images/login-hero.svg" alt="" />
         </Hero>
         <Form>
@@ -25,7 +30,7 @@ const Login = (props) => {
           </Started>
           </a>
           <Account>
-            Already have an account?<span><a href = "/">Log In</a></span>         
+            Already have an account?<span><a href = "/signin">Log in</a></span>         
           </Account>
         <Text>
             <p>Lorem idnw dwido wdiso wdii di wsidws wihdsidiws di wid weiie ie iwf eo w fje Lorem ipsum dolor ipmetr.</p>
@@ -68,6 +73,9 @@ const Nav = styled.nav`
     height : 6vh;
   }
   
+  & > div > a {
+    text-decoration : none;
+  }
 `;
 
 const Join = styled.a`
