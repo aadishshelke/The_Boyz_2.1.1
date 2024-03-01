@@ -18,7 +18,7 @@ const Home = (props) => {
 const Container = styled.div`
   padding-top: 52px;
   max-width: 100%;
-  background-color : #f7e4e4;
+  background-color : #c4e3da;
 `;
 
 const Content = styled.div`

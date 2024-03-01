@@ -246,7 +246,7 @@ const CommonCard = styled.div`
 text-align: center;
 overflow: hidden;
 margin-bottom:8px;
-background-color: #ffdbd2;
+background-color: #3fbf9b;
 border-radius: 5px;
 position: relative;
 border: none;
@@ -255,9 +255,10 @@ box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);`
 const ShareBox = styled(CommonCard)`
 display: flex;
 flex-direction: column;
-color: #958b7b;
+color: black;
 margin: 0 0 8px;
-background: #ffdbd2;
+background: #3fbf9b;
+border-radius : 40px;
 div {
     button {
     outline: none;
@@ -286,7 +287,7 @@ div {
         padding-left: 16px;
         border: 1px solid rgba(0, 0, 0, 0.15);
         border-radius: 35px;
-        background-color: #f7e4e4;
+        background-color: #b6e2d5;
         text-align: left;
         }
         }
@@ -299,7 +300,7 @@ div {
             margin:0 4px 0 -2px;
             }
             span {
-            color: #70b5f9;
+            color: black;
             }
             }
             }
@@ -308,12 +309,23 @@ div {
             & > div >button > img {
                 height : 4vh;
             }
+            & > div >button {
+                padding-top-bottom : 0;
+                margin-top : 3px; 
+                margin-bottom : 3px; 
+                border : 2px solid #3fbf9b;
+                border-radius : 20px;
+                background-color:#b6e2d5;
+            }
 `;
 
 const Article = styled(CommonCard)`
 padding: 0;
 margin: 0 0 8px;
 overflow: visible;
+border-top-left-radius : 1000%;
+border-top-right-radius : 40px;
+border-bottom-right-radius : 40px;
 `;
 
 const SharedActor = styled.div`
@@ -323,6 +335,11 @@ padding: 12px 16px 0;
 margin-bottom: 8px;
 align-items: center;
 display: flex;
+background-color: #c4e3da;
+border : 5px solid #3fbf9b ;
+//border-bottom : 0px;
+border-top-left-radius : 30px;
+border-right-radius : 30px;
 a {
     margin-right: 12px;
     flex-grow: 1;
@@ -374,6 +391,8 @@ overflow: hidden;
 color: rgba(0, 0, 0, 0.9);
 font-size: 14px;
 text-align: left;
+border-left : 10px solid #3fbf9b ;
+
 `;
 const SharedImg = styled.div`
 margin-top: 8px;
@@ -405,7 +424,7 @@ display: flex;
 }
 }
 & > button > img {
-    height : 3vh;
+    height : 3vh; 
 }
 `;
 

@@ -40,12 +40,12 @@ const Header = (props) => {
               </a>
             </NavList>
 
-            <NavList>
+            {/* <NavList>
               <a>
                 <img src="/images/nav-notification.svg" alt="" />
                 <span>Notifications</span>
               </a>
-            </NavList>
+            </NavList> */}
 
             <User>
               <a>
@@ -76,7 +76,7 @@ const Header = (props) => {
 };
 
 const Container = styled.div`
-  background-color: #ffdbd2;
+  background-color:#3fbf9b;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   left: 0;
   padding: 0 24px;
@@ -113,7 +113,7 @@ const Search = styled.div`
     input {
       border: none;
       box-shadow: none;
-      background-color: #eef3f8;
+      background-color: #b6e2d5;
       border-radius: 2px;
       color: rgba(0, 0, 0, 0.9);
       width: 218px;
@@ -144,7 +144,8 @@ const SearchIcon = styled.div`
 
 const Nav = styled.nav`
   margin-left: auto;
-  display: block;
+  display: flex;
+  flex-direction : column;  
   @media (max-width: 768px) {
     position: fixed;
     left: 0;
@@ -158,7 +159,7 @@ const NavListWrap = styled.ul`
   display: flex;
   flex-wrap: nowrap;
   list-style-type: none;
-
+  // justify-content : center;
   .active {
     span:after {
       content: "";
@@ -184,7 +185,7 @@ const NavList = styled.li`
     flex-direction: column;
     font-size: 12px;
     font-weight: 400;
-    justify-content: center;
+    justify-content: space-around;
     line-height: 1.5;
     min-height: 52px;
     min-width: 80px;
