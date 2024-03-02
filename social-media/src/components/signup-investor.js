@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import {setDoc, doc} from "firebase/firestore";
+import { auth, db } from '../firebase-config';
+
 // Reuse the styled components from the FounderForm example
 const Container = styled.div`
     background-color: #ffeae5; 
@@ -25,7 +29,8 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 15px; // Spacing between form elements
-
+    overflow-y: auto; // Allow vertical scrolling
+    max-height: 80vh;
 `;
 
 const Input = styled.input`
@@ -63,8 +68,10 @@ const InvestorForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        investmentFocus: '',
-        investmentAmount: '',
+        password: '',
+        aoe: '',
+        bio: '',
+        timec: '',
     });
 
     const handleChange = (e) => {
@@ -73,7 +80,36 @@ const InvestorForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Investor Details:', formData);
+        const { name,email,password,aoe,bio,timec} = formData;
+
+        createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // Save additional startup info in Firestore
+        setDoc(doc(db, "users", user.uid), {
+          email,
+          name,
+          aoe,
+          bio,
+          timec,
+          role: 'investor',
+        })
+        .then(() => {
+          console.log("Investor information saved successfully");
+          navigate('/signin'); // Navigate after successful registration and data save
+        })
+        .catch((error) => {
+          console.error("Error saving investor information: ", error.message);
+        });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Error during registration:', errorMessage);   
+    });
+    console.log('Investor saved successfully', formData);
+    navigate('/signin');
         // Submission logic here
     };
 
@@ -114,19 +150,32 @@ const InvestorForm = () => {
                     onChange={handleChange}
                     required
                 />
+                <Input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    onChange={handleChange}
+                    required
+                />
                 <Textarea
-                    name="investmentFocus"
-                    placeholder="Investment Focus Areas"
+                    type="text"
+                    name="aoe"
+                    placeholder="Area of Expertise"
+                    onChange={handleChange}
+                ></Textarea>
+                <Textarea
+                    type="text"
+                    name="bio"
+                    placeholder="Brief Bio"
                     onChange={handleChange}
                 ></Textarea>
                 <Input
                     type="text"
-                    name="investmentAmount"
-                    placeholder="Investment Amount ($)"
+                    name="timec"
+                    placeholder="Time Commitment in Hours/week or Hours/month"
                     onChange={handleChange}
-                    required
                 />
-                <Button type="submit" onClick={() => navigate('/home')}>Register as Investor</Button>
+                <Button type="submit" onClick={handleSubmit}>Register as Investor</Button>
             </Form>
         </Container>
     );

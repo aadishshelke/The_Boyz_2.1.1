@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../firebase-config';
+
+import { doc, getDoc } from "firebase/firestore"; 
+import { db } from '../firebase-config'
+
 const Container = styled.div`
     background-color: #ffeae5; // Keep background consistent
     display: flex;
@@ -56,19 +62,66 @@ const Button = styled.button`
 `;
 
 const Signin = () => {
+    const [error, setError] = useState('');
     const [formData, setFormData] = useState({
-        name: '',
         email: '',
-        startupIdea: '',
-        sector: '',
+        password: '',
     });
-
+    
+    const navigate = useNavigate();
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const { email, password } = formData;
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Authentication successful
+            console.log('User logged in:', userCredential.user);
+            
+            // Retrieve user document to get the role
+            const userDocRef = doc(db, "users", userCredential.user.uid);
+            getDoc(userDocRef).then((docSnap) => {
+              if (docSnap.exists()) {
+                const userData = docSnap.data();
+                console.log(userData);
+                if (userData.role === 'founder') {
+                  navigate('/pgs');
+                } else if (userData.role === 'investor') {
+                  navigate('/pgm');
+                } else {    
+                  console.error("User role is not defined or unexpected");
+                  navigate('/');
+                }
+              } else {
+                console.error("No user document found");
+                navigate('/');
+              }
+            });
+          })
+        .catch((error) => {
+            let message;
+            switch (error.code) {
+                case 'auth/wrong-password':
+                    message = 'The password is incorrect. Please try again.';
+                    break;
+                case 'auth/invalid-email':
+                    message = 'No user registered with this email. Please sign up.';
+                    break;
+                case 'auth/too-many-requests':
+                    message = "Access to this account has been temporarily disabled due to many failed login attempts.";
+                    break;
+                default:
+                    message = 'Failed to sign in. Please try again.';
+                    break
+            }
+            setError(message);
+            console.error('Error during sign in:', error.message);
+        });
+
         console.log('Founder Details:', formData);
     };
 
@@ -83,7 +136,7 @@ const Signin = () => {
 
     }
   `;
-    let navigate = useNavigate();
+
     return (
         <Container>
             <Logo>
@@ -101,10 +154,14 @@ const Signin = () => {
                     required
                 />
                 <Input
-                    name="startupIdea"
+                    type="password"
+                    name="password"
                     placeholder="Password"
+                    onChange={handleChange}
+                    required
                 />
-                <Button type="submit" onClick={() => navigate('/home')}>Log in</Button>
+                <Button type="submit" onClick={handleSubmit}>Log in</Button>
+                {error && <p style={{ color: 'red' }}>{error}</p>}
             </Form>
         </Container>
     );

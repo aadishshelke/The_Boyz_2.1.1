@@ -40,11 +40,12 @@ textarea: {
 
 const StartupForm = () => {
   const [formData, setFormData] = useState({
-    companyName: '',
-    email: '',
-    description: '',
-    mission: '',
-    offerings: '',
+    companyName: "",
+    email: "",
+    password: "",
+    description: "",
+    mission: "",
+    offerings: "",
   });
 
   const handleChange = (e) => {
@@ -89,55 +90,69 @@ const Logo = styled.span`
 `;
 
 let navigate = useNavigate();
-  return (
-    <Container>
-        <Logo>
-          <a href="/home">
-            <img src="/images/logo-transparent.png" height = "1px" alt="" />
-          </a>
-        </Logo>
-       <h1>Register Your Startup</h1>
-    <form style={styles.form} onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="companyName"
-        placeholder="Company Name"
-        onChange={handleChange}
-        required
-        style={styles.input}
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        onChange={handleChange}
-        required
-        style={styles.input}
-      />
-      <textarea
-        name="description"
-        placeholder="Description"
-        onChange={handleChange}
-        style={styles.textarea}
-      ></textarea>
-      <input
-        type="text"
-        name="mission"
-        placeholder="Mission Statement"
-        onChange={handleChange}
-        style={styles.input}
-      />
-      <input
-        type="text"
-        name="offerings"
-        placeholder="Offerings"
-        onChange={handleChange}
-        style={styles.input}
-      />
-      <button type="submit" style={styles.button} onClick={() => navigate('/home')}>Submit</button>
-    </form>
-    </Container>
-  );
+return (
+  <Container>
+      <Logo>
+        <a href="/home">
+          <img src="/images/logo-transparent.png" height="1px" alt="" />
+        </a>
+      </Logo>
+      <h1>Register Your Startup</h1>
+      <form style={styles.form} onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="companyName"
+          placeholder="Company Name"
+          value={formData.companyName} // Bind input value to formData state
+          onChange={handleChange}
+          required
+          style={styles.input}
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email} // Bind input value to formData state
+          onChange={handleChange}
+          required
+          style={styles.input}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password} // Bind input value to formData state
+          onChange={handleChange}
+          required
+          style={styles.input}
+        />
+        <textarea
+          name="description"
+          placeholder="Description"
+          value={formData.description} // Bind textarea value to formData state
+          onChange={handleChange}
+          style={styles.textarea}
+        ></textarea>
+        <input
+          type="text"
+          name="mission"
+          placeholder="Mission Statement"
+          value={formData.mission} // Bind input value to formData state
+          onChange={handleChange}
+          style={styles.input}
+        />
+        <input
+          type="text"
+          name="offerings"
+          placeholder="Offerings"
+          value={formData.offerings} // Bind input value to formData state
+          onChange={handleChange}
+          style={styles.input}
+        />
+        <button type="submit" style={styles.button}>Submit</button>
+      </form>
+  </Container>
+);
 };
 
 

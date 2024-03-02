@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from '../firebase-config';
+
 const Container = styled.div`
     background-color: #ffeae5; // Keep background consistent
     display: flex;
@@ -24,6 +28,8 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 15px; // Spacing between form elements
+    overflow-y: auto; // Allow vertical scrolling
+    max-height: 80vh;
 `;
 
 const Input = styled.input`
@@ -61,8 +67,15 @@ const FounderForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        startupIdea: '',
-        sector: '',
+        password: '',
+        desc: '',
+        area: '',
+        pdetails: '',
+        market: '',
+        roles: '',
+        fstage: '',
+        wURL: '',
+        cinfo: '',
     });
 
     const handleChange = (e) => {
@@ -71,9 +84,44 @@ const FounderForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const { name,email,password,desc,area,pdetails,market,roles,fstage,wURL,cinfo } = formData;
+
+        createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // Save additional startup info in Firestore
+        setDoc(doc(db, "users", user.uid), {
+          email,
+          name,
+          desc,
+          area,
+          pdetails,
+          market,
+          roles,
+          fstage,
+          wURL,
+          cinfo,
+          role: 'founder',
+        })
+        .then(() => {
+          console.log("Startup information saved successfully");
+          navigate('/signin'); // Navigate after successful registration and data save
+        })
+        .catch((error) => {
+          console.error("Error saving startup information: ", error.message);
+        });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Error during registration:', errorMessage);   
+    });
+    console.log("Startup information saved successfully");
+    navigate('/signin');
+  };
         console.log('Founder Details:', formData);
         // Submission logic here
-    };
 
     const Logo = styled.span`
     margin-right: 8px;
@@ -110,15 +158,59 @@ const FounderForm = () => {
                     onChange={handleChange}
                     required
                 />
+                <Input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    onChange={handleChange}
+                    required
+                />
                 <Textarea
-                    name="startupIdea"
-                    placeholder="Startup Idea"
+                    name="desc"
+                    placeholder="Description about your startup"
                     onChange={handleChange}
                 ></Textarea>
-                <Button type="submit" onClick={() => navigate('/home')}>Register as Founder</Button>
+                <Textarea
+                    name="area"
+                    placeholder="Based on which area"
+                    onChange={handleChange}
+                ></Textarea>
+                <Textarea
+                    name="pdetails"
+                    placeholder="product details"
+                    onChange={handleChange}
+                ></Textarea>
+                <Textarea
+                    name="market"
+                    placeholder="Target Market"
+                    onChange={handleChange}
+                ></Textarea>
+                <Textarea
+                    name="roles"
+                    placeholder="Team members and their roles"
+                    onChange={handleChange}
+                ></Textarea>
+                <Input
+                    type="text"
+                    name="fstage"
+                    placeholder="Funding Stage"
+                    onChange={handleChange}
+                />
+                <Input
+                    type="text"
+                    name="wURL"
+                    placeholder="Website URL"
+                    onChange={handleChange}
+                />
+                <Input
+                    type="text"
+                    name="cinfo"
+                    placeholder="contact information"
+                    onChange={handleChange}
+                />
+                <Button type="submit" onClick={handleSubmit}>Register as Founder</Button>
             </Form>
         </Container>
     );
-};
-
+    };
 export default FounderForm;

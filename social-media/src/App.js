@@ -9,8 +9,10 @@ import Founder_signup from "./components/Founder_signup";
 import InvestorForm from './components/signup-investor';
 import FounderForm from './components/signup-founder';
 import Signin from './components/Signin';
-
-
+import MentorSearch from './components/pgs';
+import StartupSearch from './components/pgm';
+import StartupProfile from './components/sprof';
+import MentorProfile from './components/mprof';
 
 function App() {
   return (
@@ -24,7 +26,10 @@ function App() {
           <Route path="signup-investor" element={<InvestorForm/>} />
           <Route path="/signup-founder" element={<FounderForm />} />
           <Route path="/signin" element={<Signin />} />
-
+          <Route path="/pgs" element={<MentorSearch />} />
+          <Route path="/pgm" element={<StartupSearch />} />
+          <Route path="/sprof/:startupId" element={<StartupProfile />} />
+          <Route path="/mprof/:mentorId" element={<MentorProfile />} />
           <Route path="/home" element={
             <>
               <Header />
